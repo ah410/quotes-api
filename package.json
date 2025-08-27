@@ -1,0 +1,26 @@
+{
+  "name": "quotes-api",
+  "version": "1.0.0",
+  "description": "An API for getting back random quotes for use in applications such as typing speed tests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ah410/quotes-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ah410/quotes-api/issues"
+  },
+  "homepage": "https://github.com/ah410/quotes-api#readme",
+  "dependencies": {
+    "@apollo/server": "^5.0.0",
+    "graphql": "^16.11.0"
+  }
+}
