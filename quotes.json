@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "quote": "The only way to do great work is to love what you do.",
+        "author": "Steve Jobs"
+    },
+    {
+        "id": 2,
+        "quote": "Life is what happens when you're busy making other plans.",
+        "author": "John Lennon"
+    },
+    {
+        "id": 3,
+        "quote": "Do not watch the clock. Do what it does. Keep going.",
+        "author": "Sam Levenson"
+    }
+]
