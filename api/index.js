@@ -1,10 +1,17 @@
-// Followed documentation at https://www.apollographql.com/docs/apollo-server/getting-started/
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
-import fs from 'fs';
+import fs from "fs";
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import express from "express";
+import cors from "cors";
+
+// Create an Express app, using CORS and JSON middleware
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 // Load quotes from JSON file
-const quotes = JSON.parse(fs.readFileSync('quotes.json', 'utf-8'));
+const quotesPath = new URL('./quotes.json', import.meta.url);
+const quotes = JSON.parse(fs.readFileSync(quotesPath, 'utf-8'));
 
 // GraphQL Schema
 const typeDefs = `
@@ -32,9 +39,12 @@ const resolvers = {
 
 // Create Apollo Server instance
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+    typeDefs,
+    resolvers
 });
+await server.start();
 
-// Export your server for Vercel
-export default startServerAndCreateNextHandler(server);
+app.use('/graphql', expressMiddleware(server));
+
+// Export the app for Vercel
+export default app;
