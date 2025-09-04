@@ -37,9 +37,4 @@ const server = new ApolloServer({
 });
 
 // Export your server for Vercel
-
-// Creates an Express app, makes ApolloServer instance available as middleware, and prepares the app to handle incoming requests
-const { url } = await startStandaloneServer(server, {
-  listen: { port: 4000 },
-});
-console.log(`🚀  Server ready at: ${url}`);
+export default startServerAndCreateNextHandler(server);
