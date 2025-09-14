@@ -1,5 +1,36 @@
 # quotes-api
-An API for getting back random quotes for use in applications such as typing speed tests.
+An API for getting back quotes for use in applications such as typing speed tests.
+
+
+## Example Queries
+**Production URL:**  [https://quotes-api-kappa-eight.vercel.app/](https://quotes-api-kappa-eight.vercel.app/) <br>
+**Endpoint:** /api/graphql
+```graphql
+query ExampleQuery($quoteId: ID!) {
+  quotes {
+    id
+    text
+    author
+  }
+  quote(id: $quoteId) {
+    id
+    text
+    author
+  }
+  randomQuote {
+    id
+    text
+    author
+  }
+}
+```
+
+## Variables
+```json
+{
+  "quoteId": "1"
+}
+```
 
 ## Documentation
 1. https://www.apollographql.com/docs/apollo-server/getting-started/
